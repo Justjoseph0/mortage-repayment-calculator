@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="../src/output.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">  
+  
+  <title>Frontend Mentor | Mortgage repayment calculator</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    *{
+      font-family: "Plus Jakarta Sans", sans-serif;
+    }
+
+    .mortage-input:focus-within .mortage-span{
+      background-color: hsl(61, 70%, 52%);
+      border-color: hsl(61, 70%, 52%);
+    }
+    .mortage-input:hover{
+      border-color: hsl(202, 55%, 16%);
+    }
+    .mortage-input:hover .mortage-span{
+      border-color: hsl(202, 55%, 16%);
+    }
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body class="bg-blue-200 h-screen flex">
+    <main class="md:w-3/4 w-full m-auto bg-white flex lg:flex-row flex-col md:rounded-tr-2xl rounded-br-2xl md:rounded-bl-2xl md:rounded-tl-2xl">
+      <section class="lg:w-2/4 w-full p-8" aria-label="Mortgage-calculator">
+        <div class="flex justify-between md:items-center mb-6 md:flex-row flex-col items-start">
+          <h1 class="font-extrabold md:text-2xl text-xl md:m-0 mb-2 text-slate900"> Mortgage Calculator</h1>
+          <a href="#" class="underline text-slate700 font-normal" id="clear-all">Clear All</a>
+        </div>
+        <form id="form">
+          <div aria-label="input-group" >
+            <label for="Mortgage Amount" class="text-slate700 font-medium">Mortgage Amount</label>
+              <div class="flex  w-full mt-2 mb-1 rounded-sm mortage-input">
+                <span class="p-2 bg-Slate100 px-3 border-l border-t border-b border-slate500 mortage-span">€</span>
+                <input type="text" class="w-full p-2 outline-none border-t border-b border-e focus:border-bgLime focus:outline-none  focus:border  border-slate500" id="mortgage-amount">
+              </div>
+              <span class=" text-red font-medium hidden required-field">This field is required</span>
+          </div>
+          <div class="flex md:flex-row flex-col justify-between gap-4 w-full my-4" aria-label="input-group">
+            <div class="md:w-9/12 w-full">
+              <label for="Mortgage term" class="text-slate700 font-medium">Mortgage Term</label>
+              <div class="flex w-full mt-2 mb-1 rounded-sm mortage-input">
+                <input type="text" class="w-full p-2 outline-none border-t border-b border-l border-slate500 focus:border-bgLime focus:outline-none focus:outline focus:border" id="mortgage-term">
+                <span class="p-2 bg-Slate100 px-3 border-r border-t border-b border-slate500 mortage-span">years</span>
+              </div>
+              <span class=" text-red font-medium hidden required-field">This field is required</span>
+            </div>
+            <div class="md:w-9/12 w-full">
+               <label for="Mortgage term" class="text-slate700 font-medium">Interest Rate</label>
+              <div class="flex w-full mt-2 mb-1 rounded-sm mortage-input">
+                <input type="text" class="w-full p-2 outline-none border-t border-b border-l border-slate500 focus:border-bgLime focus:outline-none focus:outline focus:border" id="interest-rate">
+                <span class="p-2 bg-Slate100 px-3 border-r border-t border-b border-slate500 mortage-span">%</span>
+              </div>
+              <span class=" text-red font-medium hidden required-field">This field is required</span>
+            </div>
+          </div>
+          <div aria-label="input-group">
+            <label for="Mortgage type" class="text-slate700 font-medium">Mortgage Type</label>
+            <div class="w-full p-2 flex gap-3 my-2 rounded-sm border-slate500 border hover:border-bgLime">
+              <input type="radio" name="Mortgage-type" value="repayment"> <span class="font-bold text-slate900">Repayment</span>
+            </div>
+            <div class="w-full p-2 flex gap-3 rounded-sm border-slate500 border mb-1 hover:border-bgLime">
+              <input type="radio" name="Mortgage-type" value="Interest-only"> <span class="font-bold text-slate900">Interest Only</span>
+            </div>
+            <span class=" text-red font-medium hidden radiorequired-field">This field is required</span>
+          </div>
+
+          <button type="submit" class="md:w-3/5 w-full py-3 rounded-full bg-bgLime mt-9  gap-2 font-bold text-slate900 hover:opacity-75 flex items-center justify-center"><span><img src="../assets/images/icon-calculator.svg" alt="calculator"></span>Calculate Repayments</button>
+        </form>
+      </section>
+      <section class="lg:w-2/4 w-full  bg-slate900 lg:rounded-tr-2xl md:rounded-br-2xl lg:rounded-bl-[60px] md:rounded-bl-2xl" aria-label="results">
+           <!-- Empty results start -->
+         <section class="flex justify-center items-center empty-result h-full">
+            <div class=" w-4/4 h-fit mx-auto text-center text-white100 px-4 lg:py-0 py-7">
+              <img src="../assets/images/illustration-empty.svg" class="mx-auto" alt="illustration-empty">
+              <h1 class="my-4 font-extrabold text-xl">Results shown here</h1>
+              <p class="text-slate700">Complete the form and click “calculate repayments” to see what your monthly repayments would be.</p>
+            </div>
+         </section>
+          <!-- Empty results end -->
+             <!-- Completed results start -->
+           <section class="p-6 section">
+            
+           </section>
+            <!-- Completed results end -->
+      </section>
+    </main>
+
+  <!-- Mortgage Calculator
+  Clear All
+
+  Mortgage Amount
+
+  Mortgage Term
+
+  Interest Rate
+
+  Mortgage Type
+  Repayment
+  Interest Only
+
+  Calculate Repayments -->
+
+  <!-- Empty results start -->
+
+  <!-- Results shown here
+
+  Complete the form and click “calculate repayments” to see what 
+  your monthly repayments would be. -->
+
+  <!-- Empty results end -->
+
+  <!-- Completed results start -->
+
+  <!-- Your results
+
+  Your results are shown below based on the information you provided. 
+  To adjust the results, edit the form and click “calculate repayments” again.
+
+  Your monthly repayments
+
+  Total you'll repay over the term -->
+
+  <!-- Completed results end -->
+  
+  <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div> -->
+  <script src="./main.js"></script>
+</body>
+</html>
